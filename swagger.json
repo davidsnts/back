@@ -1,0 +1,19 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Cardapio Virtual",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Rota Padrão",
+        "responses": {
+          "200": {
+            "description": "Rota de boas vindas a API"
+          }
+        }
+      }
+    }
+  }
+}
