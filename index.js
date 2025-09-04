@@ -16,8 +16,8 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.get('/', (req, res) => res.send({ 'msg': 'bem vindo a nossa API.' }));
 
-
 const porta = 3003;
+
 app.listen(porta, () => {
     console.log(`App rodando na porta http://localhost:${porta}`)
 })
