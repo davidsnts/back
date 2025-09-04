@@ -4,6 +4,7 @@ const swaggerUi = require("swagger-ui-express");
 const swaggerFile = require("./swagger.json");
 
 const app = express();
+const connectToDatabase = require('./src/database/database'); //arquivo de conexão com o banco
 
 app.use(cors({
     origin: "*",          // permite qualquer domínio/porta
@@ -12,6 +13,8 @@ app.use(cors({
 }));
 
 app.use(express.json());
+
+connectToDatabase();
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
 
 app.get('/', (req, res) => res.send({ 'msg': 'bem vindo a nossa API.' }));
