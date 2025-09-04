@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const swaggerUi = require("swagger-ui-express");
 const swaggerFile = require("./swagger.json");
+const produto = require("./src/router/produto.router");
 
 const app = express();
 const connectToDatabase = require('./src/database/database'); //arquivo de conexão com o banco
@@ -13,6 +14,8 @@ app.use(cors({
 }));
 
 app.use(express.json());
+
+app.use('/produto', produto);
 
 connectToDatabase();
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFile));
