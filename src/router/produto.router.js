@@ -1,6 +1,8 @@
 const router = require('express').Router();
-const { createProdutoController } = require('../controller/produto.controller');
+const produtoController = require('../controller/produto.controller');
 
-router.post('/create', createProdutoController);
+router.post('/create', produtoController.createProdutoController);
+router.get('/findAll', produtoController.findAllProdutoController);
+router.get('/findById', produtoController.findAllProdutoController);
 
 module.exports = router;
