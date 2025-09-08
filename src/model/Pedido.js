@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 
 const PedidoSchema = new mongoose.Schema({
-  nome: { type: String, required: true }, // nome do cliente
+  nome: { type: String, required: true },
+  telefone: { type: String, required: true},
   endereco: {
     bairro: { type: String, required: true },
     rua: { type: String, required: true },
@@ -16,8 +17,7 @@ const PedidoSchema = new mongoose.Schema({
       precoUnitario: { type: Number, required: true },
       complementos: [
         {
-          nome: { type: String, required: true },
-          preco: { type: Number, required: true }
+          nome: { type: String, required: true }
         }
       ]
     }
@@ -25,6 +25,7 @@ const PedidoSchema = new mongoose.Schema({
   valorTotal: { type: Number, required: true },
   formaPagamento: { type: String, required: true }, // ex: Dinheiro, Cartão, Pix
   troco: { type: Number },
+  situacao: { type: String, default: 'Em andamento' },
   createdAt: { type: Date, default: Date.now }
 });
 
